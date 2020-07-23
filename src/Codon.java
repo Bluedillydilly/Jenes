@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Codon {
 
    NucleotideBase[] tripletBase;
@@ -13,5 +15,19 @@ public class Codon {
          sb.append(base.name());
       }
       return sb.toString();
+   }
+
+   @Override
+   public boolean equals(Object o){
+      if(o == this){
+         return true;
+      }
+      if(!(o instanceof Codon)){
+         return false;
+      }
+
+      Codon c = (Codon) o;
+      return Arrays.equals(c.tripletBase, this.tripletBase);
+
    }
 }
